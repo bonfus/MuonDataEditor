@@ -1,11 +1,17 @@
-# about-yml-editor
+# OpenControl YAML editor
 
-A rough proof of concept [about.yml](https://github.com/18f/about_yml) editor using [json-editor](https://github.com/JJediny/json-editor) as a base.
+A yaml editor for the OpenControl component format.
 
-This early in development, there isn't a hosted version. Easiest way to get it up and running is:
+Code based taken from [18F's about-yml-editor](https://github.com/18F/about-yml-editor)
 
+# Running the editor locally
+Python 2
 ```
 python -m SimpleHTTPServer
+```
+Python 3
+```
+python3 -m http.server
 ```
 
 ### Public domain

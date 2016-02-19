@@ -2,18 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>.about.yml Editor</title>
-    
+    <title>OpenControl Editor</title>
+
     <!-- Foundation CSS framework (Bootstrap and jQueryUI also supported) -->
     <link rel='stylesheet' href='//cdn.jsdelivr.net/foundation/5.0.2/css/foundation.min.css'>
     <!-- Font Awesome icons (Bootstrap, Foundation, and jQueryUI also supported) -->
     <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css'>
-   
+
     <link rel='stylesheet' href='assets/css/style.css'>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
     <script src="assets/js/jsoneditor.js"></script>
     <script src="assets/js/json2yaml.js"></script>
-    
+
     <script>
     // Set the default CSS theme and icon library globally
     JSONEditor.defaults.theme = 'foundation5';
@@ -23,7 +23,7 @@
   <body>
     <div class='row'>
       <div class='medium-12 columns'>
-        <h1>.about.yml editor</h1>
+        <h1>Compliance Masonry Editor</h1>
       </div>
     </div>
     <div class='row'>
@@ -36,20 +36,20 @@
       <div id='editor_holder' class='medium-7 columns'></div>
       <div class='medium-5 columns'><textarea id='yamloutput' class='yamlwindow'></textarea></div>
     </div>
-    
+
     <script>
-      $.getJSON('https://raw.githubusercontent.com/18F/about_yml/master/lib/about_yml/schema.json', function(data) {
-     
+      $.getJSON('/assets/component.json', function(data) {
+
         // Initialize the editor
         var editor = new JSONEditor(document.getElementById('editor_holder'),{
           // Enable fetching schemas via ajax
           ajax: false,
-        
+
           // The schema for the editor
           schema: data
- 
+
         });
-        // Hook up the generate button to output to the text field 
+        // Hook up the generate button to output to the text field
         document.getElementById('generate').addEventListener('click',function() {
           // Get the value from the editor
           var yaml = json2yaml(editor.getValue());
@@ -58,7 +58,7 @@
           console.log(yaml);
         });
 
-        // Hook up the validation indicator to update its 
+        // Hook up the validation indicator to update its
         // status whenever the editor changes
         editor.on('change',function() {
           // Get an array of errors from the validator
@@ -79,7 +79,7 @@
             $("#yamloutput").val(yaml);
           }
         });
-      }); 
+      });
     </script>
   </body>
 </html>
