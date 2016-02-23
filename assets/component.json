@@ -64,12 +64,28 @@
           "type": {
             "title": "Type",
             "type": "string"
+          },
+          "steps": {
+            "title": "Type",
+            "type": "string"
+          },
+          "filename": {
+            "title": "Type",
+            "type": "string"
+          },
+          "test_passed": {
+            "title": "Type",
+            "type": "boolean"
+          },
+          "last_run": {
+            "title": "Type",
+            "type": "string"
           }
         }
       }
     },
-    "covered_by": {
-      "title": "Covered By",
+    "satisfies": {
+      "title": "Satisfies",
       "type": "array",
       "items": {
         "properties": {
