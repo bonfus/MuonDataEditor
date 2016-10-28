@@ -1,18 +1,6 @@
 # OpenControl YAML editor
 
-A yaml editor for the OpenControl component format.
-
-Code based taken from [18F's about-yml-editor](https://github.com/18F/about-yml-editor)
-
-# Running the editor locally
-Python 2
-```
-python -m SimpleHTTPServer
-```
-Python 3
-```
-python3 -m http.server
-```
+A yaml generator for the OpenControl component format
 
 ### Public domain
 
