@@ -1,0 +1,157 @@
+{
+  "title": "OpenControl Schema 3.0",
+  "type": "object",
+  "properties": {
+    "name": {
+      "title": "Name",
+      "description": "Name of the Component",
+      "type": "string",
+      "minLength": 10,
+      "propertyOrder": 1
+    },
+    "satisfies": {
+      "title": "Satisfies",
+      "description": "The part or use of a components that contributes to implementing a security control",
+      "type": "array",
+      "propertyOrder": 2,
+      "items": {
+        "title": "Control",
+        "properties": {
+          "standard_key": {
+            "title": "Standard Key",
+            "default": "NIST-800-53",
+            "type": "string"
+          },
+          "control_key": {
+            "title": "Control Key",
+            "type": "string"
+          },
+          "narrative": {
+            "title": "Narrative",
+            "format": "textarea",
+            "type": "string"
+          },
+          "implementation_status": {
+            "title": "Implementation Status",
+            "type": "string",
+            "enum": [
+              "complete",
+              "partial",
+              "planned",
+              "none"
+            ]
+          },
+          "covered_by": {
+            "title": "Covered By",
+            "type": "array",
+            "items": {
+              "properties": {
+                "verification_key": {
+                  "title": "Verification Key",
+                  "description": "The self defined key value for another Verification use as a tag",
+                  "type": "string"
+                },
+                "system_key": {
+                  "title": "System Key",
+                  "description": "The self defined key value for another System use as a tag",
+                  "type": "string"
+                },
+                "component_key": {
+                  "title": "Component Key",
+                  "description": "The self defined key value for another Component use as a tag",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "references": {
+      "title": "Reference(s)",
+      "description": "References are other components or documentation relied on",
+      "type": "array",
+      "propertyOrder": 3,
+      "items": {
+        "title": "Reference",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "path": {
+            "title": "Path",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "verifications": {
+      "title": "Verification(s)",
+      "type": "array",
+      "propertyOrder": 4,
+      "items": {
+        "title": "Verification",
+        "type": "object",
+        "properties": {
+          "key": {
+            "title": "Key",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "path": {
+            "title": "Path",
+            "type": "string"
+          },
+          "type": {
+            "title": "Type",
+            "type": "string"
+          },
+          "steps": {
+            "title": "Type",
+            "type": "string"
+          },
+          "filename": {
+            "title": "Type",
+            "type": "string"
+          },
+          "test_passed": {
+            "title": "Type",
+            "type": "boolean"
+          },
+          "last_run": {
+            "title": "Type",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "documentation_complete": {
+      "title": "Documentation Complete",
+      "description": "Is the Component fully documented?",
+      "default": "false",
+      "propertyOrder": 5,
+      "type": "boolean"
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string",
+      "default": "3.0.0",
+      "propertyOrder": 6,
+      "enum": [
+        "3.0.0"
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ]
+}
