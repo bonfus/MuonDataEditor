@@ -116,19 +116,19 @@
             "type": "string"
           },
           "steps": {
-            "title": "Type",
+            "title": "Steps",
             "type": "string"
           },
           "filename": {
-            "title": "Type",
+            "title": "Filename",
             "type": "string"
           },
           "test_passed": {
-            "title": "Type",
+            "title": "Test Passed",
             "type": "boolean"
           },
           "last_run": {
-            "title": "Type",
+            "title": "Last Run",
             "type": "string"
           }
         }
