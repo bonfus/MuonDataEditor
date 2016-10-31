@@ -6,12 +6,11 @@
       "title": "Name",
       "description": "Name of the Component",
       "type": "string",
-      "minLength": 10,
       "propertyOrder": 1
     },
     "satisfies": {
       "title": "Satisfies",
-      "description": "The part or use of a components that contributes to implementing a security control",
+      "description": "The part or use of a Component that contributes to implementing a security Control",
       "type": "array",
       "propertyOrder": 2,
       "items": {
@@ -28,8 +27,15 @@
           },
           "narrative": {
             "title": "Narrative",
-            "format": "textarea",
-            "type": "string"
+            "type": "array"
+            "items": {
+              "properties": {
+                "text": {
+                  "title": "Text",
+                  "description": "Text describing the Component's contribution to a security Control",
+                  "type": "string",
+                  "format": "textarea"
+                }            
           },
           "implementation_status": {
             "title": "Implementation Status",
@@ -48,7 +54,7 @@
               "properties": {
                 "verification_key": {
                   "title": "Verification Key",
-                  "description": "The self defined key value for another Verification use as a tag",
+                  "description": "<b>By default use this field</b>. The self defined key value for another Verification use as a tag",
                   "type": "string"
                 },
                 "system_key": {
@@ -69,7 +75,7 @@
     },
     "references": {
       "title": "Reference(s)",
-      "description": "References are other components or documentation relied on",
+      "description": "References to other documentation or resources for the Component",
       "type": "array",
       "propertyOrder": 3,
       "items": {
@@ -94,6 +100,7 @@
     "verifications": {
       "title": "Verification(s)",
       "type": "array",
+      "description": "Verification ares any test or configurations used to verify/validate the component's implementation as described in the narrative",     
       "propertyOrder": 4,
       "items": {
         "title": "Verification",
@@ -136,8 +143,8 @@
     },
     "documentation_complete": {
       "title": "Documentation Complete",
-      "description": "Is the Component fully documented?",
-      "default": "false",
+      "description": "Is the Component fully documented and are all the controls are implemented and verifiable?",
+      "default": "False",
       "propertyOrder": 5,
       "type": "boolean"
     },
