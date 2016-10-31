@@ -35,7 +35,9 @@
                   "description": "Text describing the Component's contribution to a security Control",
                   "type": "string",
                   "format": "textarea"
-                }            
+                }
+              }
+            }  
           },
           "implementation_status": {
             "title": "Implementation Status",
