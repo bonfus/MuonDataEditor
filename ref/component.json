@@ -27,7 +27,7 @@
           },
           "narrative": {
             "title": "Narrative",
-            "type": "array"
+            "type": "array",
             "items": {
               "properties": {
                 "text": {
