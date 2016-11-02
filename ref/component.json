@@ -39,6 +39,7 @@
                 "text": {
                   "title": "Text",
                   "description": "Text describing the Component's contribution to the security Control",
+                  "default": "|",
                   "type": "string",
                   "format": "textarea"
                 }
