@@ -28,11 +28,17 @@
           "narrative": {
             "title": "Narrative",
             "type": "array",
+            "format": "table",            
             "items": {
               "properties": {
+                "key": {
+                  "title": "Key",
+                  "description": "Key to subcontrol (ex. for AC-2a, a is the key)",
+                  "type": "string"
+                },
                 "text": {
                   "title": "Text",
-                  "description": "Text describing the Component's contribution to a security Control",
+                  "description": "Text describing the Component's contribution to the security Control",
                   "type": "string",
                   "format": "textarea"
                 }
