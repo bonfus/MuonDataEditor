@@ -2,7 +2,13 @@
 
 A yaml generator for the OpenControl component format
 
-### Public domain
+## Derived work from:
+https://github.com/jdorn/json-editor
+
+### JSON work - MIT License
+https://github.com/jdorn/json-editor/blob/master/LICENSE
+
+### YAML work - Public domain
 
 This project is in the worldwide [public domain](LICENSE.md). As stated in [CONTRIBUTING](CONTRIBUTING.md):
 
