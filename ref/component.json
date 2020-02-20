@@ -16,9 +16,9 @@
       "minLength": 1,
       "propertyOrder": 2
     },
-    "structure": {
-      "title": "Structure and Magnetism",
-      "description": "Details about the crystal structure of the compound",
+    "data": {
+      "title": "Entry Details",
+      "description": "Details about the crystal structure, the magnetic properties and the muon sites for this compound",
       "type": "array",
       "propertyOrder": 3,
       "items": {
@@ -77,6 +77,12 @@
                     "Helix",
                     "Multi-k"
                   ]
+                },
+                "doi": {
+                  "title": "DOI",
+                  "description": "DOI where the magnetic order is described",
+                  "default": "",
+                  "type": "string"
                 },
                 "description": {
                   "title": "Description",
@@ -150,7 +156,7 @@
         }
       }
     },
-    "references": {
+    "other_references": {
       "title": "Other Reference(s)",
       "description": "References to other resources about this compound, for example neutron scattering results",
       "type": "array",
