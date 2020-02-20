@@ -1,44 +1,86 @@
 {
-  "title": "OpenControl Schema 3.0",
+  "title": "MuonData Schema 1.0",
   "type": "object",
   "properties": {
     "name": {
       "title": "Name",
-      "description": "Name of the Component",
+      "description": "Name of the compound",
       "type": "string",
+      "minLength": 1,
       "propertyOrder": 1
     },
-    "satisfies": {
-      "title": "Satisfies",
-      "description": "The part or use of a Component that contributes to implementing a security Control",
+    "formula": {
+      "title": "Formula",
+      "description": "Chemical Formula",
+      "type": "string",
+      "minLength": 1,
+      "propertyOrder": 2
+    },
+    "structure": {
+      "title": "Structure and Magnetism",
+      "description": "Details about the crystal structure of the compound",
       "type": "array",
-      "propertyOrder": 2,
+      "propertyOrder": 3,
       "items": {
-        "title": "Control",
+        "title": "Structure",
         "properties": {
-          "standard_key": {
-            "title": "Standard Key",
-            "default": "NIST-800-53",
+          "description": {
+            "title": "Description",
+            "description": "Short description of structure type. Eg. High temperature Fe-alpha",
+            "default": "",
             "type": "string"
           },
-          "control_key": {
-            "title": "Control Key",
+          "type": {
+            "title": "Type",
+            "description": "Periodic system or not?",
+            "default": "",
+            "type": "string",
+            "enum": [
+              "Crystal",
+              "Molecule",
+              "Other"
+            ]
+          },
+          "doi": {
+            "title": "DOI",
+            "description": "DOI of a pubblication describing the lattice structure",
+            "default": "",
             "type": "string"
           },
-          "narrative": {
-            "title": "Narrative",
+          "cod": {
+            "title": "COD ID",
+            "description": "Entry in opencrystallography.net database",
+            "default": "",
+            "type": "string"
+          },
+          "magnetism_details": {
+            "title": "Magnetism",
+            "description": "Deatils about magnetic orders, if applicable.",
             "type": "array",
-            "format": "table",            
+            "format": "table",
             "items": {
+              "title": "Details",
               "properties": {
-                "key": {
-                  "title": "Key",
-                  "description": "Key to subcontrol (ex. for AC-2a, a is the key)",
-                  "type": "string"
+                "temperature": {
+                  "title": "Ordering temperature",
+                  "description": "Data in K. Value must be a number.",
+                  "type": "number"
                 },
-                "text": {
-                  "title": "Text",
-                  "description": "Text describing the Component's contribution to the security Control",
+                "type": {
+                  "title": "Type",
+                  "description": "Text describing the order that appears at the given temperature.",
+                  "type": "string",
+                  "enum": [
+                    "FM",
+                    "AFM",
+                    "Ferrimagnetic",
+                    "Helix",
+                    "Multi-k"
+                  ]
+                },
+                "description": {
+                  "title": "Description",
+                  "description": "Text describing the order that appears at the given temperature.",
                   "default": "|",
                   "type": "string",
                   "format": "textarea"
@@ -46,34 +88,35 @@
               }
             }  
           },
-          "implementation_status": {
-            "title": "Implementation Status",
-            "type": "string",
-            "enum": [
-              "complete",
-              "partial",
-              "planned",
-              "none"
-            ]
-          },
-          "covered_by": {
-            "title": "Covered By",
+          "muon_sites": {
+            "title": "Muon sites",
+            "description": "Deatils about the muon sites, if they are known.",
             "type": "array",
+            "format": "table",
             "items": {
+              "title": "Details",
               "properties": {
-                "verification_key": {
-                  "title": "Verification Key",
-                  "description": "<b>By default use this field</b>. The self defined key value for another Verification use as a tag",
+                "method": {
+                  "title": "Identification method",
+                  "description": "How the muon site was determined",
+                  "type": "string",
+                  "enum": [
+                    "TF measurements in paramagnetic phase",
+                    "Depolarization vs direction",
+                    "Nuclear dipols",
+                    "DFT",
+                    "Other"
+                  ]
+
+                },
+                "doi": {
+                  "title": "Reference DOI",
+                  "description": "The DOI of the reference",
                   "type": "string"
                 },
-                "system_key": {
-                  "title": "System Key",
-                  "description": "The self defined key value for another System use as a tag",
-                  "type": "string"
-                },
-                "component_key": {
-                  "title": "Component Key",
-                  "description": "The self defined key value for another Component use as a tag",
+                "arxiv": {
+                  "title": "arXiv",
+                  "description": "The arXiv entry",
                   "type": "string"
                 }
               }
@@ -82,92 +125,68 @@
         }
       }
     },
-    "references": {
-      "title": "Reference(s)",
-      "description": "References to other documentation or resources for the Component",
+    "experiment": {
+      "title": "uSR Experiment(s)",
+      "description": "List of articles describing muSR measurements",
       "type": "array",
-      "propertyOrder": 3,
+      "format": "table",
+      "propertyOrder": 4,
       "items": {
         "title": "Reference",
         "type": "object",
         "properties": {
-          "name": {
-            "title": "Name",
+          "description": {
+            "title": "Description",
             "type": "string"
           },
-          "path": {
-            "title": "Path",
+          "doi": {
+            "title": "DOI",
             "type": "string"
           },
-          "type": {
-            "title": "Type",
+          "arxiv": {
+            "title": "arXiv",
             "type": "string"
           }
         }
       }
     },
-    "verifications": {
-      "title": "Verification(s)",
+    "references": {
+      "title": "Other Reference(s)",
+      "description": "References to other resources about this compound, for example neutron scattering results",
       "type": "array",
-      "description": "Verification ares any test or configurations used to verify/validate the component's implementation as described in the narrative",     
-      "propertyOrder": 4,
+      "format": "table",
+      "propertyOrder": 5,
       "items": {
-        "title": "Verification",
+        "title": "Reference",
         "type": "object",
         "properties": {
-          "key": {
-            "title": "Key",
+          "description": {
+            "title": "Description",
             "type": "string"
           },
-          "name": {
-            "title": "Name",
+          "doi": {
+            "title": "DOI",
             "type": "string"
           },
-          "path": {
-            "title": "Path",
-            "type": "string"
-          },
-          "type": {
-            "title": "Type",
-            "type": "string"
-          },
-          "steps": {
-            "title": "Steps",
-            "type": "string"
-          },
-          "filename": {
-            "title": "Filename",
-            "type": "string"
-          },
-          "test_passed": {
-            "title": "Test Passed",
-            "type": "boolean"
-          },
-          "last_run": {
-            "title": "Last Run",
+          "arxiv": {
+            "title": "arXiv",
             "type": "string"
           }
         }
       }
-    },
-    "documentation_complete": {
-      "title": "Documentation Complete",
-      "description": "Is the Component fully documented and are all the controls are implemented and verifiable?",
-      "default": "False",
-      "propertyOrder": 5,
-      "type": "boolean"
     },
     "schema_version": {
       "title": "Schema Version",
       "type": "string",
-      "default": "3.0.0",
+      "default": "1.0.0",
       "propertyOrder": 6,
       "enum": [
-        "3.0.0"
+        "1.0.0"
       ]
     }
   },
   "required": [
-    "name"
+    "name",
+    "formula"
   ]
 }
